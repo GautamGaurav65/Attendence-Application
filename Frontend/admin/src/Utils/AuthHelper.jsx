@@ -1,11 +1,3 @@
-import React from 'react'
-
-const AuthHelper = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default AuthHelper
+export const isAuthenticated = () => {
+  return !!localStorage.getItem('token');
+};

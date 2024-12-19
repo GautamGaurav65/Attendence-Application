@@ -1,11 +1,4 @@
-import React from 'react'
-
-const Validation = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default Validation
+export const validateEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};

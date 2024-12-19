@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-// db connection
-const connectDB=async()=>{
-    if(!process.env.MONGO_URI){
-        console.error('Error:MONGO_URI is defined in .env');
-        process.exit(1);
-    }
-    try{
-        const conn=await mongoose.connect(process.env.MONGO_URI);
-        console.log(`MongoDb connected:${conn.connection.host}`);
-    }catch(error){
-        console.error(`Database connection :${error.message}`);
-    }
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect('mongodb://localhost:27017/attendance-app', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
 };
 
-module.exports=connectDB;
+module.exports = connectDB;

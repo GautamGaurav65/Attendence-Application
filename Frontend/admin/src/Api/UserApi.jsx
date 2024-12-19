@@ -1,11 +1,8 @@
-import React from 'react'
+import axios from 'axios';
 
-const UserApi = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const API_URL = 'http://localhost:5000/api/users';
 
-export default UserApi
+export const getUserProfile = async (userId) => {
+  const response = await axios.get(`${API_URL}/${userId}`);
+  return response.data;
+};

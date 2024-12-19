@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { createContext, useState } from 'react';
 
-const AttendanceContext = () => {
+export const AttendanceContext = createContext();
+
+export const AttendanceProvider = ({ children }) => {
+  const [attendanceRecords, setAttendanceRecords] = useState([]);
+
   return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default AttendanceContext
+    <AttendanceContext.Provider value={{ attendanceRecords, setAttendanceRecords }}>
+      {children}
+    </AttendanceContext.Provider>
+  );
+};
